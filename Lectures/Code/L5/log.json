@@ -1,0 +1,4 @@
+[
+  [500, "Internal Server Error", "user/add"],
+  [404, "Not Found", "admin/add"]
+]
