@@ -1,0 +1,23 @@
+extends ../../layout
+
+block content
+  div(class='col-md-6')
+    form(id='product-add-form' name='product-add-form' class='form-horizontal' method="POST" action='/product/create')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='name') Name
+        div(class='col-md-9')
+          input(id='name' name='name' value='' class='form-control')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='name') Weight
+        div(class='col-md-9')
+          input(id='weight' name='weight' value='' class='form-control')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='name') Volume
+        div(class='col-md-9')
+          input(id='volume' name='volume' value='' class='form-control')
+      div(class='form-group')
+        div(class='col-md-12')
+          button(type='submit' class='btn btn-primary') Create
