@@ -1,0 +1,21 @@
+﻿extends ../layout
+
+block content
+  div(class='breadcrumb')
+    div= title
+  div.list-group
+    div.list-group-item
+      span(class='list-icon glyphicon glyphicon-briefcase')
+      a(href='/product/list') Products
+      a(href='/product/add')
+        span(class='list-icon glyphicon glyphicon-plus')
+    div.list-group-item
+      span(class='list-icon glyphicon glyphicon-globe')
+      a(href='/location/list') Locations
+      a(href='/location/add')
+        span(class='list-icon glyphicon glyphicon-plus')
+    div.list-group-item
+      span(class='list-icon glyphicon glyphicon-book')
+      a(href='/location-type/list') Location Types
+      a(href='/location-type/add')
+        span(class='list-icon glyphicon glyphicon-plus')
