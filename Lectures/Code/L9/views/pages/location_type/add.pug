@@ -1,0 +1,18 @@
+extends ../../layout
+
+block content
+  div(class='col-md-6')
+    form(id='location-type-add-form' name='location-type-add-form' class='form-horizontal' method="POST" action='')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='name') Name
+        div(class='col-md-9')
+          input(id='name' name='name' value=$fn.getPropOrDefault(newLocationType, 'name') class='form-control')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='code') Code
+        div(class='col-md-9')
+          input(id='code' name='code' value=$fn.getPropOrDefault(newLocationType, 'code') class='form-control')
+      div(class='form-group')
+        div(class='col-md-12')
+          button(type='submit' class='btn btn-primary') Create

@@ -1,0 +1,24 @@
+extends ../../layout
+
+block content
+  div(class='col-md-6')
+    form(id='product-update-form' name='product-update-form' class='form-horizontal' method="POST" action='')
+      input(id='id' name='id' type='hidden' value=product.id)
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='name') Name
+        div(class='col-md-9')
+          input(id='name' name='name' value=$fn.getPropOrDefault(newProduct, 'name', product.name) class='form-control')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='name') Weight
+        div(class='col-md-9')
+          input(id='weight' name='weight' value=$fn.getPropOrDefault(newProduct, 'weight', product.weight) class='form-control')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='name') Volume
+        div(class='col-md-9')
+          input(id='volume' name='volume' value=$fn.getPropOrDefault(newProduct, 'volume', product.volume) class='form-control')
+      div(class='form-group')
+        div(class='col-md-12')
+          button(type='submit' class='btn btn-primary') Update

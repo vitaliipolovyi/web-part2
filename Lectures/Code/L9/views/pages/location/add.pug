@@ -1,0 +1,21 @@
+extends ../../layout
+
+block content
+  div(class='col-md-6')
+    form(id='location-add-form' name='location-add-form' class='form-horizontal' method="POST" action='')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='address') Address
+        div(class='col-md-9')
+          input(id='address' name='address' value=$fn.getPropOrDefault(newLocation, 'address') class='form-control')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='type_id') Type
+        div(class='col-md-9')
+          <select id='type_id' name='type_id' class='form-control'>
+            each type in locationTypes
+              option(value=type.id selected=(type.id == $fn.getPropOrDefault(newLocation, 'type', 0))) #{type.name}
+          </select>
+      div(class='form-group')
+        div(class='col-md-12')
+          button(type='submit' class='btn btn-primary') Create

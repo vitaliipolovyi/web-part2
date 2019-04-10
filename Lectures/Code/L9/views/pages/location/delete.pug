@@ -1,0 +1,11 @@
+extends ../../layout
+
+block content
+  div(class='col-md-6')
+    form(id='location-delete-form' name='location-delete-form' class='form-horizontal' method="POST" action='')
+      input(id='id' type="hidden" name='id' value=location.id class='form-control')
+      div(class='form-group')
+        div(class='col-md-12') #{location.address} #{location.type_id}
+      div(class='form-group')
+        div(class='col-md-12')
+          button(type='submit' class='btn btn-primary') Delete

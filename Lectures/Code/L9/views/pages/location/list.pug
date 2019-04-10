@@ -1,0 +1,22 @@
+extends ../../layout
+
+block content
+  h3 Location List
+
+  a(href='/location/add' class="btn btn-default") Add
+  
+  table(class="table")
+    thead
+      tr
+        th ID
+        th Address
+        th Type
+    tbody
+      each location in locations
+        tr
+          td #{location.id}
+          td #{location.address}
+          td #{location.type.name} #{location.type.code}
+          td
+            a(href=`/location/edit/${location.id}` class="btn btn-default") Edit
+            a(href=`/location/remove/${location.id}` class="btn btn-default") Delete

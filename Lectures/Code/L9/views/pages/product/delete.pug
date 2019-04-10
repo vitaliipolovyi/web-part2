@@ -1,0 +1,11 @@
+extends ../../layout
+
+block content
+  div(class='col-md-6')
+    form(id='product-add-form' name='product-delete-form' class='form-horizontal' method="POST" action='')
+      input(id='id' type="hidden" name='id' value=product.id class='form-control')
+      div(class='form-group')
+        div(class='col-md-12') #{product.name}
+      div(class='form-group')
+        div(class='col-md-12')
+          button(type='submit' class='btn btn-primary') Delete

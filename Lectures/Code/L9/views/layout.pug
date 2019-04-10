@@ -1,0 +1,35 @@
+include ./mixins/navbar
+
+doctype html
+html
+  head
+    title= $strings.site.title
+    block styles
+      link(rel='stylesheet' href='/public/css/main.css')
+      link(rel="stylesheet" href="/public/css/bootstrap.min.css")
+  body
+    block nav#navbar
+      div.container
+        +nav($strings.site.title, 'main_menu')
+          +nav_item( '/' ) Home
+          +nav_item( '/product/list' ) Products
+          +nav_item( '/location/list' ) Locations
+          +nav_item( '/location-type/list' ) Location Types
+
+    div.container
+      if $messages
+        each notices, type in $messages
+          each notice in notices
+            p(class="alert alert-" + type) #{notice}
+
+      if errors
+        each error in errors
+          p(class="alert alert-danger") #{error.msg}
+
+      block content
+
+    block scripts
+      script(src="/public/js/jquery-3.3.1.slim.min.js")
+      script(src="/public/js/bootstrap.min.js")
+      script(src='/public/js/main.js')
+
