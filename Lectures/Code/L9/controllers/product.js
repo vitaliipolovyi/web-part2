@@ -4,6 +4,7 @@ const { body, validationResult } = require('express-validator/check')
 const { sanitizeBody } = require('express-validator/filter')
 
 const productListService = require('./../services/product.all')
+const productCreateService = require('./../services/product.create')
 
 function _getMockProduct (id = null) {
   return {
@@ -13,10 +14,6 @@ function _getMockProduct (id = null) {
     volume: 5
   }
 }
-
-// function _getMockProducts () {
-//   return [ _getMockProduct() ]
-// }
 
 module.exports = {
   index (req, res) {
@@ -46,16 +43,27 @@ module.exports = {
     sanitizeBody('name').escape(),
     sanitizeBody('sku').escape(),
     async (req, res) => {
-    const success = true
-    const productData = req.body
+        const success = true
+        const productData = req.body
+        const errors = validationResult(req)
 
-    if (success) {
-      req.flash('info', `Product "${productData.name}" is Added`)
-      res.redirect('/product/list')
-    } else {
-      res.render('pages/product/add', { newProduct: productData, errors: [{ 'msg': 'Error Omg' }] })
+        if (errors.isEmpty()) {
+          try {
+            await locationCreateService(req.body)
+            req.flash('info', `Product "${product.name}" "${product.sku}" is Added`)
+            res.redirect('/product/list')
+        } catch (error) {
+          res.render('pages/producty/add', {
+            errors: [{ msg: error.message }]
+          })
+        }
+      } else {
+        res.render('pages/location/add', {
+          errors: errors.array()
+        })
+      }
     }
-  },
+  ],
   updateProductForm (req, res) {
     const mockProduct = _getMockProduct(req.body.id)
 
