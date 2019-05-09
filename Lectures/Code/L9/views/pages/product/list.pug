@@ -8,17 +8,17 @@ block content
   table(class="table")
     thead
       tr
-        th ID
         th Name
+        th SKU
+        th Price
         th Weight
         th Volume
     tbody
       each product in products
         tr
-          td #{product.id}
           td #{product.name}
-          td #{product.weight}
+          td #{product.sku}
+          td #{product.price}
+          td #{product.weight}          
           td #{product.volume}
           td
-            a(href=`/product/edit/${product.id}` class="btn btn-default") Edit
-            a(href=`/product/remove/${product.id}` class="btn btn-default") Delete

@@ -10,12 +10,22 @@ block content
           input(id='name' name='name' value=$fn.getPropOrDefault(newProduct, 'name') class='form-control')
       div(class='form-group')
         div(class='col-md-3')
-          label(for='name') Weight
+          label(for='sku') SKU
+        div(class='col-md-9')
+          input(id='sku' name='sku' value=$fn.getPropOrDefault(newProduct, 'sku') class='form-control')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='price') Price
+        div(class='col-md-9')
+          input(id='price' name='price' value=$fn.getPropOrDefault(newProduct, 'price') class='form-control')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='weight') Weight
         div(class='col-md-9')
           input(id='weight' name='weight' value=$fn.getPropOrDefault(newProduct, 'weight') class='form-control')
       div(class='form-group')
         div(class='col-md-3')
-          label(for='name') Volume
+          label(for='volume') Volume
         div(class='col-md-9')
           input(id='volume' name='volume' value=$fn.getPropOrDefault(newProduct, 'volume') class='form-control')
       div(class='form-group')

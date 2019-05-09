@@ -49,16 +49,16 @@ module.exports = {
 
         if (errors.isEmpty()) {
           try {
-            await locationCreateService(req.body)
+            const product = await productCreateService(req.body)
             req.flash('info', `Product "${product.name}" "${product.sku}" is Added`)
             res.redirect('/product/list')
         } catch (error) {
-          res.render('pages/producty/add', {
+          res.render('pages/product/add', {
             errors: [{ msg: error.message }]
           })
         }
       } else {
-        res.render('pages/location/add', {
+        res.render('pages/product/add', {
           errors: errors.array()
         })
       }
