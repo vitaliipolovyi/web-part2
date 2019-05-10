@@ -1,0 +1,1 @@
+type IdType = string;
