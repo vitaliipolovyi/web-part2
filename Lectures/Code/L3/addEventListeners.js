@@ -15,4 +15,4 @@ const options = {
   passive: false // --> не викликає preventDefault
 }
 
-button.addEventListener('click', callback, options)
+form.addEventListener('submit', callback, options)

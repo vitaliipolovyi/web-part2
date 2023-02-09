@@ -1,6 +1,8 @@
 const promise1 = new Promise(function (resolve, reject) {
-  console.log('promise 1 is resolved')
-  setTimeout(resolve, 100, 'foo') // !! 3d param
+  setTimeout(function resolveTm (res) {
+    console.log('promise 1 is resolved')
+    resolve(res)
+  }, 100, 'foo') // !! 3d param
 })
 
 const promise2 = new Promise(function (resolve, reject) {
@@ -22,4 +24,6 @@ async function awaitAll () {
 }
 
 awaitAll()
-  .then(res => console.log(res))
+  .then(res => {
+    console.log(res)
+  })

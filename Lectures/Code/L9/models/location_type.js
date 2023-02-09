@@ -7,4 +7,4 @@ const locationTypeSchema = new Schema({
   name: { type: String, required: true, unique: true, max: 50 }
 })
 
-module.exports = mongoose.model('LocationType', locationTypeSchema)
+module.exports = mongoose.model('LocationType', locationTypeSchema, 'location_type')

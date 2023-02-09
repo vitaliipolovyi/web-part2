@@ -1,6 +1,6 @@
 function argumentsArrayLike () {
-  Array.prototype.forEach.call(arguments, function (item) {
-    console.log(item)
+  Array.prototype.forEach.call(arguments, function (item, index) {
+    console.log(item, index)
   })
 }
 

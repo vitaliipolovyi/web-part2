@@ -3,7 +3,7 @@ function performCalculation (val) {
     setTimeout(() => {
       console.log('++', val)
       resolve(val)
-    }, 500)
+    }, 1500)
   })
 }
 

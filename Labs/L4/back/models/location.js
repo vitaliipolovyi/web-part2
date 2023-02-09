@@ -7,4 +7,4 @@ const locationSchema = new Schema({
   type: { type: Schema.Types.ObjectId, ref: 'LocationType', required: true }
 })
 
-module.exports = mongoose.model('Location', locationSchema)
+module.exports = mongoose.model('Location', locationSchema, 'location')

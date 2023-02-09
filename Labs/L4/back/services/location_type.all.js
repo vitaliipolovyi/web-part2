@@ -6,6 +6,7 @@
 module.exports = function () {
   return new Promise((resolve, reject) => {
     LocationType.find({}, function (err, locationTypes) {
+      console.log(locationTypes)
       if (err) {
         reject(err)
       } else {

@@ -38,6 +38,8 @@ state.name = 'aaa'
 state.rrr = 'rrr'
 console.log()
 
+// let name = state.name
+// name = '3333'
 /*
 const value = state.startValue
 console.log(value)

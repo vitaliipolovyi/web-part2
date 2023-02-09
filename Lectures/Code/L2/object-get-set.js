@@ -25,20 +25,20 @@ function Dir (name) {
   }
 
   Object.defineProperty(this, 'group', {
-    get: function () { return own.split(':')[0] },
+    get: function () { return own.split(':')[1] },
     set: function (groupName) {
       const pieces = own.split(':')
-      pieces[0] = groupName
+      pieces[1] = groupName
 
       own = pieces.join(':')
     }
   })
 
   Object.defineProperty(this, 'user', {
-    get: function () { return own.split(':')[1] },
+    get: function () { return own.split(':')[0] },
     set: function (userName) {
       const pieces = own.split(':')
-      pieces[1] = userName
+      pieces[0] = userName
 
       own = pieces.join(':')
     }
@@ -49,5 +49,5 @@ const myDir = new Dir('Lab2')
 
 myDir.group = 'am3'
 console.log(myDir.getOwn())
-myDir.user = 'am3_Stud'
+myDir.user = 'am3_Stud1'
 console.log(myDir.getOwn())

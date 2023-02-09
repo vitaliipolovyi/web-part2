@@ -1,5 +1,9 @@
-console.log(x) // undefined
-var x = 3;
+
+a()
+
+function a() {
+  console.log('hoisting')
+}
 
 /**
  * Self-invoking functions / Immediately Invoked Function Expressions

@@ -1,6 +1,9 @@
 const promise1 = new Promise(function (resolve, reject) {
-  console.log('promise 1 is resolved')
-  setTimeout(resolve, 600, 'foo') // !! 3d param
+  setTimeout(function (res) {
+    console.log('promise 1 is resolved')
+    reject(new Error('Smth went wrong'))
+    // resolve(res)
+  }, 600, 'foo') // !! 3d param
 })
 
 const promise2 = new Promise(function (resolve, reject) {
@@ -17,4 +20,7 @@ Promise.race([promise1, promise2])
     console.log('------')
     console.log('Race value is:', value)
     console.log('------')
+  })
+  .catch(function (error) {
+    console.error('Error ' + error.message)
   })

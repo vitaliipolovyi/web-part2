@@ -7,6 +7,7 @@
 // console.log('\n---------------------------\n')
 
 // function concat (delim, ...theArgs) {
+//   console.log(theArgs)
 //   return theArgs.join(delim)
 // }
 
@@ -55,30 +56,28 @@
 
 // console.log('\n---------------------------\n')
 
-// function ArrowTest (param) {
-//   this.param = param
+function ArrowTest (param) {
+  this.param = param
 
-//   const foo = () => {
-//     console.log(arguments)
-//   }
+  const foo = () => (this.param)
 
-//   foo()
-// }
+  foo()
+}
 
-// ArrowTest('test')
+ArrowTest('test')
 
 // console.log('\n---------------------------\n')
 
-function Tick () {
-  this.ticks = 0
+// function Tick () {
+//   this.ticks = 0
 
-  this.Run = function () {
-    setInterval(() => {
-      this.ticks++
-      console.log(`tick ${this.ticks}`)
-    }, 1000)
-  }
-}
+//   this.Run = function () {
+//     setInterval(() => {
+//       this.ticks++
+//       console.log(`tick ${this.ticks}`)
+//     }, 1000)
+//   }
+// }
 
-const ticker = new Tick()
-ticker.Run()
+// const ticker = new Tick()
+// ticker.Run()

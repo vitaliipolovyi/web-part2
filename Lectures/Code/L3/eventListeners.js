@@ -1,9 +1,14 @@
 const button = document.querySelector('button')
 const callback = function (event) {
+  console.log(this)
   console.log('Btn click')
 }
 
-button.addEventListener('click', callback, false)
+class Caller {
+  doClick() {}
+}
+button.addEventListener('click', callback.bind(new Caller()), false)
+// button.addEventListener('click', callback, false)
 
 // **** //
 

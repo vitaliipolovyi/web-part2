@@ -1,10 +1,6 @@
 if (window.EventSource) {
   const source = new EventSource('http://localhost:3030')
 
-  source.addEventListener('message', function (e) {
-    document.getElementById('main').innerHTML = e.data
-  }, false)
-
   source.addEventListener('open', function (e) {
     document.getElementById('state').innerHTML = 'Connected'
   }, false)
@@ -20,6 +16,10 @@ if (window.EventSource) {
     } else if (e.target.readyState === EventSource.CONNECTING) {
       stateId.innerHTML = 'Connecting...'
     }
+  }, false)
+
+  source.addEventListener('message', function (e) {
+    document.getElementById('main').innerHTML = e.data
   }, false)
 } else {
   console.error('Your browser doesn\'t support SSE')

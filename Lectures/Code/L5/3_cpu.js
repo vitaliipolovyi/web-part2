@@ -7,7 +7,7 @@ const host = 'localhost'
 const port = 8090
 
 const server = http.createServer((req, res) => {
-  sleep(10000)
+  sleep(1000)
   res.statusCode = 200
   res.setHeader('Content-Type', 'text/plain')
   res.end('Hello World\n')

@@ -1,6 +1,6 @@
 const promise = new Promise(function (resolve, reject) {
   const request = new XMLHttpRequest()
-  request.open('GET', 'http://ip-api.com/json') // http://ip-api.comm/json
+  request.open('GET', 'http://ip-api2s.com/json') // http://ip-api.comm/json
   request.responseType = 'json'
   request.onload = function () {
     resolve(request.response)

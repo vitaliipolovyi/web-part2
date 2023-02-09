@@ -72,7 +72,8 @@ class Shop extends BaseModel {
   constructor () {
     super('shops')
     this.fields = this.fields.concat(['name', 'address'])
-  },
+  }
+
   Create (row) {
     super.Create(row)
     ///

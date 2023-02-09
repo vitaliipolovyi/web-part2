@@ -1,10 +1,12 @@
 const promise1 = new Promise(function (resolve, reject) {
-  console.log('promise 1 is resolved')
-  setTimeout(resolve, 100, 'foo')
+  setTimeout(function resolveTm(res) {
+    console.log('promise 1 is resolved')
+    resolve(res)
+  }, 100, 'foo')
 })
 
 const promise2 = new Promise(function (resolve, reject) {
-  const fn = pormise => {
+  const fn = promise => {
     resolve(promise1)
   }
   setTimeout(fn, 100)

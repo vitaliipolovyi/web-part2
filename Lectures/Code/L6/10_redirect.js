@@ -10,6 +10,7 @@ app.get('/user/login', function (req, res) {
 })
 
 app.get('/admin', function (req, res) {
+  // can access admin panel
   res.redirect('/user/login')
 })
 

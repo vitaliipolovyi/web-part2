@@ -26,5 +26,5 @@ const watch = new Product('AA333', 3000)
 console.log(watch.discountedPrice)
 // watch.discountedPrice = 2000
 watch.price = 2000
-// console.log(watch.discountedPrice)
-watch.price = 'aAAAA'
+console.log(watch.discountedPrice)
+watch.price = 3330

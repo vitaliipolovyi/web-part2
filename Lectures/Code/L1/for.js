@@ -10,12 +10,28 @@ for (const key in object) {
 }
 
 console.log('\nfor..of')
+// Symbol.iterator symbol specifies the default iterator for an object
 object[Symbol.iterator] = function * () {
   for (const k in this) {
     yield [k, this[k]]
   }
 }
 
-for (const val of object) {
-  console.log(val)
+for (const [key, value] of object) {
+  console.log(key, value)
 }
+
+// console.log('--------------------')
+// const iterableMap = new Map([
+//   ["a", 1],
+//   ["b", 2],
+//   ["c", 3],
+// ]);
+
+// for (const entry of iterableMap) {
+//   console.log(entry)
+// }
+
+// for (const [key, value] of iterableMap) {
+//   console.log('key =', key, 'value =', value)
+// }

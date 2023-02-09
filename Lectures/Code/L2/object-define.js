@@ -5,7 +5,7 @@ const user = { name: 'Root' }
 Object.defineProperty(user, 'locked', {
   value: true,
   writable: false,
-  configurable: false,
+  configurable: true,
   enumerable: false
 })
 

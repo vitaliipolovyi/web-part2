@@ -5,10 +5,11 @@ const http = require('http')
 const host = 'localhost' // 127.0.0.1
 const port = 8080
 
-// const EventEmitter = require('events')
-// console.dir(new EventEmitter())
+const EventEmitter = require('events')
+console.dir(new EventEmitter())
 
 const server = http.createServer((request, response) => {
+  console.log('Received ' + request.method)
   response.statusCode = 200
   response.setHeader('Content-Type', 'text/plain')
   response.end('Hello World\n')

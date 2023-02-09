@@ -25,3 +25,4 @@ const value = state.startValue
 console.log(value)
 
 state.startValue = 1
+const newValue = state.startValue

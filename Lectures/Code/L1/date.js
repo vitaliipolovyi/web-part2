@@ -10,7 +10,7 @@ console.log(someDate.toGMTString())
 console.log('1) ---------------------------')
 
 console.log(someDate.toLocaleDateString())
-console.log(someDate.toLocaleDateString('en-US'))
+console.log(someDate.toLocaleDateString('en-GB'))
 
 console.log('2) ---------------------------')
 
@@ -38,3 +38,13 @@ const second = currentDate.getSeconds()
 console.log('4) ---------------------------')
 
 console.log(currentDate, hour, minute, second)
+
+console.log('5) ---------------------------')
+
+console.log(currentDate, currentDate.getFullYear(), currentDate.getDay(), currentDate.getMonth())
+
+// currentDate.setTi(2023)
+// console.log(currentDate.getFullYear())
+
+const dateObj = new Date()
+console.log(dateObj.valueOf())

@@ -1,1 +1,1 @@
-Boolean('')
+console.log(Boolean([]))

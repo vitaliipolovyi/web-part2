@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "L3",
   "main": "server.js",
-  "dependencies": {},
+  "dependencies": {
+    "ws": "^8.10.0"
+  },
   "devDependencies": {
     "eslint": "^5.14.1",
     "eslint-config-standard": "^12.0.0",

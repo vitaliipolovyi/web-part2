@@ -14,7 +14,7 @@ eventEmitter.addListener('connection', listner1)
 eventEmitter.on('connection', listner2)
 
 let eventListeners = eventEmitter.listenerCount('connection')
-console.log(eventListeners + ' Listner(s) listening to connection event')
+console.log(eventListeners + ' Listener(s) listening to connection event')
 
 eventEmitter.emit('connection')
 
@@ -23,6 +23,6 @@ eventEmitter.removeListener('connection', listner1)
 eventEmitter.emit('connection')
 
 eventListeners = eventEmitter.listenerCount('connection')
-console.log(eventListeners + ' Listner(s) listening to connection event')
-
+console.log(eventListeners + ' Listener(s) listening to connection event')
+console.log(eventEmitter.listeners('connection'));
 console.log('Program Ended.')

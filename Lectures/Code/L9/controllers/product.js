@@ -43,13 +43,13 @@ module.exports = {
     sanitizeBody('name').escape(),
     sanitizeBody('sku').escape(),
     async (req, res) => {
-        const success = true
+        // const success = true
         const productData = req.body
         const errors = validationResult(req)
 
         if (errors.isEmpty()) {
           try {
-            const product = await productCreateService(req.body)
+            const product = await productCreateService(productData)
             req.flash('info', `Product "${product.name}" "${product.sku}" is Added`)
             res.redirect('/product/list')
         } catch (error) {

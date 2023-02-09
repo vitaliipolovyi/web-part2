@@ -2,9 +2,11 @@
 
 const fs = require('fs')
 
-fs.readFile('log.json', function (error, data) {
+fs.readFile('log1.json', function (error, data) {
   if (error) {
-    throw error
+    console.error(error)
+    // throw error
+    return
   }
 
   console.log('Buffer', data)

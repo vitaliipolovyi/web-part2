@@ -1,6 +1,11 @@
+let t = null;
+
 const promise1 = new Promise(function (resolve, reject) {
-  console.log('promise 1 is resolved')
-  setTimeout(resolve, 100, 'foo')
+  t = setTimeout(function (res) {
+    console.log('promise 1 is resolved')
+    resolve(res)
+  }, 1000, 'foo')
+  console.log('t', t)
 })
 
 const promise2 = new Promise(function (resolve, reject) {
@@ -16,5 +21,9 @@ Promise.all([promise1, promise2, promise3])
     console.dir(values)
   })
   .catch(function (error) {
+    if (t) {
+      clearTimeout(t)
+      t = null
+    }
     console.error('Error ' + error.message)
   })

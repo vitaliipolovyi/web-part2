@@ -10,4 +10,4 @@ const productSchema = new Schema({
   volume: { type: Number, required: true, max: 9999 }
 })
 
-module.exports = mongoose.model('Product', productSchema)
+module.exports = mongoose.model('Product', productSchema, 'product')

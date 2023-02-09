@@ -16,13 +16,15 @@ const productRoutes = require('./routes/product')
 const locationRoutes = require('./routes/location')
 const locationTypeRoutes = require('./routes/location_type')
 
-const app = express()
+const { host, port, securedCookies } = require('./config')
 
+const app = express()
+console.log('SC:', securedCookies)
 app.use(session({
   secret: 'secret',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false }
+  cookie: { secure: securedCookies }
 }))
 app.use(flash())
 app.use(logger('dev'))
@@ -43,8 +45,6 @@ app.use('/location-type', locationTypeRoutes)
 
 app.use(notFoundMiddleware)
 app.use(errorMiddleware)
-
-const { host, port } = require('./config')
 
 app.listen(port, host, () => {
   console.log(`Server running at http://${host}:${port}/`)

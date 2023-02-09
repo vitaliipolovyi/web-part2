@@ -16,7 +16,7 @@ app.all('/secret', function (req, res, next) {
   next()
 })
 
-app.all('/secret/:token', function (req, res, next) {
+app.all('/secret/:key/:value', function (req, res, next) {
   res.send(req.params)
   next()
 })

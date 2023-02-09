@@ -1,0 +1,38 @@
+<h1>News | All</h1>
+<div class="news-list">
+  <form name="news-search"
+    [ngClass]="articleSearchClasses"
+    (mouseover)="onArticleContentHover()"
+    (mouseout)="onArticleContentBlur()">
+    <div>
+      <label for="search">Search:</label>
+      <input id="search" name="search" type="text" [(ngModel)]="searchString" (ngModelChange)="oSearchStringChange($event)" />
+    </div>
+  </form>
+  <hr>
+  <iframe [src]="chosenNewsUrl" *ngIf="chosenNewsUrl"></iframe>
+  <hr>
+  <div *ngFor="let article of news" class="news-list-item">
+    <div [appHighlight]="{show: true}">{{ article.author }} | {{ article.publishedAt }}</div>
+    ---
+    <div>
+        <div>
+          <img class="news-image" [src]="article.urlToImage" *ngIf="article.urlToImage; else noArticleImageBlock" />
+          <ng-template #noArticleImageBlock>
+            <img class="news-image" src="https://media.istockphoto.com/id/1147544807/uk/%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BD%D1%96-%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F/%D0%B5%D1%81%D0%BA%D1%96%D0%B7%D0%BD%D0%B5-%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F-%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BD%D0%B0-%D0%B3%D1%80%D0%B0%D1%84%D1%96%D0%BA%D0%B0.jpg?s=612x612&w=is&k=20&c=mzR40AOEF9EnH6_plEEluDLY5T-yVsEKLFgQX8fGdBs=" />
+          </ng-template>
+        </div>
+        <div>
+          {{ article.content }}
+        </div>
+        --
+        <div>
+          <button
+            (click)="onNewsViewClick($event, article)"
+            [class]="viewBtnClass"
+            [class.blue-btn]="setBtnClass(article)">View</button>
+        </div>
+    </div>
+    <br>
+  </div>
+</div>
