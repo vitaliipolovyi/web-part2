@@ -1,14 +1,10 @@
-const sums = [129.31, 214.55, 246.53]
-const average = sums.reduce((total, amount, index, array) => {
-  total += amount
-  if (index === array.length - 1) {
-    return total / array.length
-  } else {
-    return total
-  }
-})
+// const sums = [129.31, 214.55, 246.53]
+// const average = sums.reduce((total, amount, index, array) => {
+//   total += amount
+//   return (index === array.length - 1) ? total / array.length : total
+// })
 
-console.log(average)
+// console.log(average)
 
 const fruitBasket = [
   'banana', 'cherry', 'orange',

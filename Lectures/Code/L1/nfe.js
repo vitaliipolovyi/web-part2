@@ -10,4 +10,4 @@ const fibonacciExpr = function fibonacci (n) {
 
 const fibonacciNum = fibonacciExpr(6)
 
-console.log(fibonacciNum)
+console.log(typeof fibonacciExpr, fibonacciNum)

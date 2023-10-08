@@ -8,7 +8,7 @@ function a() {
 /**
  * Self-invoking functions / Immediately Invoked Function Expressions
  */
-(function () {
-  console.log(newVar) // undefined
+(function (arg1) {
+  console.log(arg1) // undefined
   var newVar = 'local value'
-})()
+})('test')

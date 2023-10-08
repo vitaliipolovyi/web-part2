@@ -14,9 +14,9 @@ const user = { name: 'Root', locked: false }
 // user.name = 'Nginx'
 // console.dir(user)
 
-// Object.freeze(user)
-// console.log(Object.isFrozen(user))
+Object.seal(user)
+console.log(Object.isSealed(user))
 // user.role = 'admin'
 // delete user.locked
-// user.name = 'Nginx'
+user.name = 'Nginx'
 // console.dir(user)

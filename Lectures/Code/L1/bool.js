@@ -1,1 +1,1 @@
-console.log(Boolean([]))
+console.log(false, true, Boolean({}))

@@ -32,4 +32,5 @@ console.log(moduleInstance.getCurrent())
 const moduleInstance2 = Module
 moduleInstance2
   .increment()
-console.log(moduleInstance.getCurrent())
+  .getCurrent()
+console.log(moduleInstance2.getCurrent())

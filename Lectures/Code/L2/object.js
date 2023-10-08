@@ -6,7 +6,7 @@ const object = {
   propDel: 'del'
 }
 
-console.log(object)
+console.log(object.prototype)
 
 delete object.propDel
 

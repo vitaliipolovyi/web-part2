@@ -22,8 +22,8 @@ function sortTreeInDepth (tree, levelLimit, level = 0) {
   }
 }
 
-function sortTable (data, dir = -1) {
-  this.sort(function (x, y) {
+function sortArray(data, dir = 1, sortFn = null) {
+  this.sort(sortFn ? sortFn : function (x, y) {
     if (x[0] === y[0]) {
       return (x[1] > y[1] ? 1 : -1)
     } else {

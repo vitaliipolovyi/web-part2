@@ -4,18 +4,20 @@
 // example = false
 
 // if (example) {
-//   var standartVar = 3
+//   const standartVar = 3
 //   console.log(standartVar)
 // }
 
-// standartVar = 4
+// /*const*/ standartVar = 4
 // console.log(standartVar)
 
-const constObj = []
-constObj.push(1)
+const constObj = {}
+
+constObj.a = 1
+// constObj.push(1)
 
 console.log(constObj)
 
-constObj.pop();
+delete constObj.a;
 
 console.log(constObj)

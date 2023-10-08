@@ -19,7 +19,7 @@ const locationTypeRoutes = require('./routes/location_type')
 const { host, port, securedCookies } = require('./config')
 
 const app = express()
-console.log('SC:', securedCookies)
+// console.log('SC:', securedCookies)
 app.use(session({
   secret: 'secret',
   resave: false,

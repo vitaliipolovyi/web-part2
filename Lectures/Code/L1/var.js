@@ -7,5 +7,5 @@ if (example) {
   console.log(standartVar)
 }
 
-standartVar = 4
+// standartVar = 4
 console.log(standartVar)

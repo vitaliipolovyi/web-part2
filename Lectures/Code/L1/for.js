@@ -16,22 +16,24 @@ object[Symbol.iterator] = function * () {
     yield [k, this[k]]
   }
 }
-
-for (const [key, value] of object) {
-  console.log(key, value)
+console.log(object)
+for (const v of object) {
+  console.log(v)
 }
 
-// console.log('--------------------')
-// const iterableMap = new Map([
-//   ["a", 1],
-//   ["b", 2],
-//   ["c", 3],
-// ]);
+console.log('--------------------')
+const iterableMap = new Map([
+  ["a", [1, 2]],
+  ["b", [2, 3]],
+  ["c", [3, 4]],
+]);
 
-// for (const entry of iterableMap) {
-//   console.log(entry)
-// }
+for (const entry of iterableMap) {
+  console.log(entry)
+}
 
-// for (const [key, value] of iterableMap) {
-//   console.log('key =', key, 'value =', value)
-// }
+for (const [key, value] of iterableMap) {
+  console.log('key =', key, 'value =', value)
+}
+
+[1, 2, 3].forEach(a => console.log(a))

@@ -2,7 +2,7 @@
 
 const fs = require('fs')
 
-fs.readFile('log1.json', function (error, data) {
+fs.readFile('log.json', function (error, data) {
   if (error) {
     console.error(error)
     // throw error

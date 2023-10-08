@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  node-app: 
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NODE_DOCKER_PORT: $API_PORT
+    image: nodejs
+    container_name: nodejs
+    #depends_on:
+    #  - app-database
+    restart: on-failure
+    env_file: .env
+    ports:
+      - "$API_PORT:$NODE_LOCAL_PORT"
+    #environment:
+    #  - DB_HOST=$DB_HOST
+    #  - DB_NAME=$DB_NAME
+    #  - DB_USER=$DB_USER
+    #  - DB_PASSWORD=$DB_PASSWORD
+    #  - DB_PORT=$DB_PORT
+    volumes:
+      - .:/home/node/app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    

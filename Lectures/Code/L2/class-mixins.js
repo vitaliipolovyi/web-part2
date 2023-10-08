@@ -37,3 +37,4 @@ class SeriazableTaxableOrder extends Serializable(Taxable(Order)) { }
 
 const orderInstance = new SeriazableTaxableOrder(323, 333.33)
 console.log(orderInstance.Tax())
+console.log(orderInstance.Serialize())
