@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  node-app: 
+    build:
+      context: .
+      dockerfile: ./docker/node/Dockerfile
+    image: nodejs
+    container_name: l10nodejs
+    depends_on:
+      - app-database
+    restart: on-failure
+    ports:
+      - "$PORT:$PORT"
+    environment:
+      - HOST=$HOST
+      - PORT=$PORT
+      - DB_HOST=$DBHOST
+      - DB_NAME=$DBNAME
+      - DB_USER=$DBUSER
+      - DB_PASSWORD=$DBPWD
+      - DB_PORT=$DBPORT
+    volumes:
+      - .:/home/node/app
+      - /home/node/app/node_modules
+  app-database: 
+    image: mongo 
+    container_name: l10db
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=$DBROOTUSER
+      - MONGO_INITDB_ROOT_PASSWORD=$DBROOTPWD
+      - MONGO_INITDB_DATABASE=$DBNAME
+      - MONGO_INITDB_USERNAME=$DBUSER
+      - MONGO_INITDB_PASSWORD=$DBPWD
+    ports:
+      - $DBPORT:$DBPORT
+    volumes:
+      - db:/data/db
+      - ./docker/mongodb/entrypoint/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+volumes:
+  db:
