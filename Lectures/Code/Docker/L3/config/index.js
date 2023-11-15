@@ -10,10 +10,26 @@ const env = process.env
 module.exports = {
   host: env.HOST || 'localhost',
   port: env.PORT || 8080,
-  dbschema: env.DBSCHEMA,
-  dbport: env.DBPORT,
-  dbuser: env.DBUSER,
-  dbpwd: env.DBPWD,
-  dbhost: env.DBHOST,
-  dbname: env.DBNAME
+  db: {
+    schema: env.DBSCHEMA,
+    port: env.DBPORT,
+    user: env.DBUSER,
+    pwd: env.DBPWD,
+    host: env.DBHOST,
+    name: env.DBNAME,  
+  },
+  jwt: {
+    key: env.JWT_TOKEN_KEY,
+    issuer: env.JWT_TOKEN_ISSUER,
+    expiration: env.JWT_TOKEN_EXPIRATION,
+  },
+  amq: {
+    host: env.RABBITMQ_HOST,
+    port: env.RABBITMQ_PORT,
+    user: env.RABBITMQ_USERNAME,
+    pass: env.RABBITMQ_PASSWORD,
+    queues: {
+      authEvents: 'authEvents', 
+    }
+  }
 }

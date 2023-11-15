@@ -6,6 +6,9 @@ const authByUsernameService = require('../services/auth/byUsername')
 const authRegisterService = require('./../services/auth/register')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const jwtConfig = require('./../config').jwt
+const authQueueName = require('./../config').amq.queues.authEvents
+const { getChannel } = require('./../amq-channel')
 
 module.exports = {
   login: [
@@ -35,6 +38,11 @@ module.exports = {
      * @param {import('express').Request} req 
      * @param {import('express').Response} res
      * @param {Function} next
+     * {
+     *   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGI2MWQ0YTQ5MjFjMDA4MTBjMmE4MSIsImlhdCI6MTcwMDAzNjgyNywiZXhwIjoxNzAwMDM2OTEzLCJpc3MiOiJ3ZWJwYXJ0MiJ9.x-OklqepQUF2-QQZJNGutVU7i6e_vFJf1GCmGlKUvZ8",
+     *   "id": "654b61d4a4921c00810c2a81",
+     *   "username": "admin@example.com"
+     * }
      */
     async(req, res, next) => {
       try {
@@ -47,10 +55,22 @@ module.exports = {
             })
           }
 
-          // TODO: config.secret
-          const token = jwt.sign({ id: user.id }, 'secret', {
-            expiresIn: 86400, // 24 hours
+          const token = jwt.sign({ id: user.id }, jwtConfig.key, {
+            expiresIn: jwtConfig.expiration,
+            issuer: jwtConfig.issuer,
           })
+
+          const loginDataMsg = JSON.stringify({
+            id: user.id,
+            username: user.username,
+            event: 'LOGIN',
+          })
+
+          getChannel()
+            .then(channel => {
+              channel.assertQueue(authQueueName, { durable: false })
+              channel.sendToQueue(authQueueName, Buffer.from(loginDataMsg))
+            })
 
           res.status(200).json({
             token: token,

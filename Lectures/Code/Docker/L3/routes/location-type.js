@@ -2,13 +2,14 @@
 
 const express = require('express')
 const router = express.Router()
+const authCheck = require('./../middlewares/auth') 
 
 const locationTypeController = require('../controllers/location-type')
 
-router.get('/', locationTypeController.locationTypeList)
-router.get('/:id', locationTypeController.getLocationTypeById)
-router.post('/', locationTypeController.postCreateLocationType)
-router.put('/:id', locationTypeController.putUpdateLocationType)
-router.delete('/:id', locationTypeController.deleteLocationType)
+router.get('/', authCheck, locationTypeController.locationTypeList)
+router.get('/:id', authCheck, locationTypeController.getLocationTypeById)
+router.post('/', authCheck, locationTypeController.postCreateLocationType)
+router.put('/:id', authCheck, locationTypeController.putUpdateLocationType)
+router.delete('/:id', authCheck, locationTypeController.deleteLocationType)
 
 module.exports = router

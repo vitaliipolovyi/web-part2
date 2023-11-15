@@ -5,7 +5,7 @@ const express = require('express')
 const logger = require('morgan')
 const bodyParser = require('body-parser')
 const config = require('./config')
-const db = require('./db')(config)
+const db = require('./db')(config.db)
 
 const notFoundMiddleware = require('./middlewares/not_found')
 const errorMiddleware = require('./middlewares/error')
@@ -34,6 +34,6 @@ app.use(errorMiddleware)
 
 const { host, port } = config
 
-app.listen(port, host, () => {
+app.listen(port, host, async() => {
   console.log(`Server running at http://${host}:${port}/`)
 })

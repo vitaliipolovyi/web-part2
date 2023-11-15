@@ -8,8 +8,8 @@ if (process.env.NODE_ENV !== 'production') {
 const env = process.env
 
 module.exports = {
-  host: env.HOST || 8080,
-  port: env.PORT || 'localhost',
+  host: env.HOST || 'localhost',
+  port: env.PORT || 8080,
   dbschema: env.DBSCHEMA,
   dbport: env.DBPORT,
   dbuser: env.DBUSER,

@@ -2,23 +2,17 @@
 
 const mongoose = require('mongoose')
 
-let _db = null
+module.exports = async function (config) {
+  try {
+    const dbUrl = `${config.dbschema}://${config.dbuser}:${config.dbpwd}@${config.dbhost}:${config.dbport}/${config.dbname}`
 
-module.exports = function (config) {
-  const dbUrl = `${config.dbschema}://${config.dbuser}:${config.dbpwd}@${config.dbhost}:${config.dbport}/${config.dbname}`
-  // 'mongodb://uname:upwd@host:port/dbname'
-  // console.log(dbUrl)
-  mongoose.connect(dbUrl, {
-    useCreateIndex: true,
-    useNewUrlParser: true
-  })
-    .catch(error => {
-      console.error(error.message)
+    await mongoose.connect(dbUrl, {
+      useCreateIndex: true,
+      useNewUrlParser: true
     })
-
-  if (_db === null) {
-    _db = mongoose.connection
+  
+    return mongoose.connection
+  } catch(error) {
+    console.error(error.message)
   }
-
-  return _db
 }

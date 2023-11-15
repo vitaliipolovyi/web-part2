@@ -20,6 +20,7 @@
     "eslint-plugin-standard": "^4.0.0"
   },
   "dependencies": {
+    "amqplib": "^0.10.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",

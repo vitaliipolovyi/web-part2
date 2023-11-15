@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: ./docker/node/Dockerfile
     image: nodejs
-    container_name: l10nodejs
+    container_name: l9nodejs
     depends_on:
       - app-database
     restart: on-failure
@@ -24,7 +24,7 @@ services:
       - /home/node/app/node_modules
   app-database: 
     image: mongo 
-    container_name: l10db
+    container_name: l9db
     restart: unless-stopped
     environment:
       - MONGO_INITDB_ROOT_USERNAME=$DBROOTUSER
@@ -32,27 +32,10 @@ services:
       - MONGO_INITDB_DATABASE=$DBNAME
       - MONGO_INITDB_USERNAME=$DBUSER
       - MONGO_INITDB_PASSWORD=$DBPWD
-      - RABBITMQ_USERNAME=$RABBITMQ_USERNAME
-      - RABBITMQ_PASSWORD=$RABBITMQ_PASSWORD
-      - RABBITMQ_PORT=$RABBITMQ_PORT
-      - RABBITMQ_HOST=$RABBITMQ_HOST
     ports:
       - $DBPORT:$DBPORT
     volumes:
       - db:/data/db
       - ./docker/mongodb/entrypoint/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
-  app-messages-queue:
-    image: rabbitmq:management
-    container_name: l10amq
-    environment:
-      #- RABBITMQ_VHOST=$RABBITMQ_VHOST
-      - RABBITMQ_DEFAULT_USERNAME=$RABBITMQ_USERNAME
-      - RABBITMQ_DEFAULT_PASSWORD=$RABBITMQ_PASSWORD
-    ports:
-      - "$RABBITMQ_PORT:$RABBITMQ_PORT"
-      - "$RABBITMQ_DASHBOARD_PORT:$RABBITMQ_DASHBOARD_PORT"
-    volumes:
-      - rabbitmq_data:/var/lib/rabbitmq
 volumes:
   db:
-  rabbitmq_data:
