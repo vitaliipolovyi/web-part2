@@ -17,6 +17,7 @@ export class NewsComponent implements OnInit {
   initNews: News[];
   isTrue: Boolean;
   articleSearchClasses: any = {}
+  options: {show: true}
 
   constructor(private newsService: NewsService, private domSanitizer: DomSanitizer) {}
 

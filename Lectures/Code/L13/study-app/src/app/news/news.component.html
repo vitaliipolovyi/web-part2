@@ -13,7 +13,7 @@
   <iframe [src]="chosenNewsUrl" *ngIf="chosenNewsUrl"></iframe>
   <hr>
   <div *ngFor="let article of news" class="news-list-item">
-    <div [appHighlight]="{show: true}">{{ article.author }} | {{ article.publishedAt }}</div>
+    <div [appHighlight]="options">{{ article.author }} | {{ article.publishedAt }}</div>
     ---
     <div>
         <div>

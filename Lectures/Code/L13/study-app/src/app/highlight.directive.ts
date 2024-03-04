@@ -6,7 +6,7 @@ import { Directive, ElementRef, Input } from '@angular/core';
 export class HighlightDirective {
   @Input('appHighlight') options: any
   constructor(el: ElementRef) {
-    console.log(this.options)
+    console.log(this)
     if (this.options?.show) {
       el.nativeElement.style.backgroundColor = 'yellow';
     }

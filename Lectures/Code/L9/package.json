@@ -24,10 +24,10 @@
     "express": "^4.16.4",
     "express-flash": "0.0.2",
     "express-session": "^1.15.6",
-    "express-validator": "^5.3.1",
+    "express-validator": "^7.0.1",
     "mongoose": "^5.5.0",
     "morgan": "^1.9.1",
     "nodemon": "^3.0.1",
-    "pug": "^2.0.3"
+    "pug": "^3.0.2"
   }
 }

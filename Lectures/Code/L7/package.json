@@ -25,6 +25,6 @@
     "express-flash": "0.0.2",
     "express-session": "^1.15.6",
     "morgan": "^1.9.1",
-    "pug": "^2.0.3"
+    "pug": "^3.0.2"
   }
 }
