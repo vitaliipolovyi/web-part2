@@ -1,30 +1,30 @@
-'use strict'
+'use strict';
 
-const DISCOUNT = 0.5
+const DISCOUNT = 0.5;
 
 class Product {
-  constructor (sku, price) {
-    this._sku = sku
-    this._price = price
+  constructor(sku, price) {
+    this._sku = sku;
+    this._price = price;
   }
-  get discountedPrice () {
-    return this._price * DISCOUNT
+  get discountedPrice() {
+    return this._price * DISCOUNT;
   }
-  get sku () {
-    return this._sku
+  get sku() {
+    return this._sku;
   }
-  set price (price) {
+  set price(price) {
     if (isNaN(parseFloat(price)) || !isFinite(price)) {
-      throw new Error('Not a number')
+      throw new Error('Not a number');
     }
 
-    this._price = price
+    this._price = price;
   }
 }
 
-const watch = new Product('AA333', 3000)
-console.log(watch.discountedPrice)
+const watch = new Product('AA333', 3000);
+console.log(watch.discountedPrice);
 // watch.discountedPrice = 2000
-watch.price = 2222
-console.log(watch.discountedPrice)
-watch.price = 3330
+watch.price = 2222;
+console.log(watch.discountedPrice);
+watch.price = 3330;
