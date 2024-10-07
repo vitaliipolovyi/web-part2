@@ -16,4 +16,4 @@ COPY --chown=node:node . .
 
 EXPOSE $NODE_DOCKER_PORT
 
-CMD ["npm", "statrt"]
+CMD ["npm", "start"]

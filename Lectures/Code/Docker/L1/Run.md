@@ -19,6 +19,10 @@ docker top [CONTAINER]
 ```
 
 ```
+docker stats 
+```
+
+```
 docker stop [CONTAINER] 
 ```
 
