@@ -4,6 +4,7 @@
   "description": "L3",
   "main": "server.js",
   "dependencies": {
+    "http-server": "^14.1.1",
     "ws": "^8.10.0"
   },
   "devDependencies": {

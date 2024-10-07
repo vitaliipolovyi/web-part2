@@ -1,18 +1,17 @@
 class ClassWithAsync {
-  async doAsyncJob () {
-    const promise = () => new Promise(function (resolve, reject) {
-      setTimeout(function () {
-        console.log('promise is resolved')
-        resolve(['array', 'param'])
-      }, 500)
-    })
+  async doAsyncJob() {
+    const promise = () =>
+      new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          console.log('promise is resolved');
+          resolve(['array', 'param']);
+        }, 500);
+      });
 
-    const result = await promise()
+    const result = await promise();
 
-    return result
+    return result;
   }
 }
 
-new ClassWithAsync()
-  .doAsyncJob()
-  .then(console.log)
+new ClassWithAsync().doAsyncJob().then(console.log);

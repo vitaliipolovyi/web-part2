@@ -1,2 +1,5 @@
-const divs = document.getElementByTagName('div');
-divs = Array.prototype.slice.call(divs);
+const divs = document.getElementsByTagName('div');
+console.log(divs);
+Array.prototype.forEach.call(divs, function (el) {
+  console.log(el);
+});

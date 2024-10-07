@@ -1,9 +1,9 @@
-const button = document.querySelector('button')
+const button = document.querySelector('button');
 
 const target = {
   handleEvent: function (event) {
-    console.log(event)
-  }
-}
+    console.log(event);
+  },
+};
 
-button.addEventListener('click', target)
+button.addEventListener('click', target);

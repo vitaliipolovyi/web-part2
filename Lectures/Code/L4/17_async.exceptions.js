@@ -1,64 +1,63 @@
-console.log('Await')
+console.log('Await');
 
-function getImage (image) {
+function getImage(image) {
   // throw new Error('Requested image not found')
   return new Promise(function (resolve, reject) {
-    const request = new XMLHttpRequest()
-    request.open('GET', image)
-    request.responseType = 'blob'
+    const request = new XMLHttpRequest();
+    request.open('GET', image);
+    request.responseType = 'blob';
     request.onload = function () {
-      console.log('Image fetched')
-      const blob = request.response
+      console.log('Image fetched');
+      const blob = request.response;
       if (blob.size > 0) {
-        resolve(blob)
+        resolve(blob);
       } else {
-        console.log('Throw')
+        console.log('Throw');
         // throw new Error('Requested image not found')
-        reject(new Error('An error occured'))
+        reject(new Error('An error occured'));
       }
-    }
+    };
     request.onerror = function () {
-      reject(new Error('An error occured'))
-    }
+      reject(new Error('An error occured'));
+    };
 
-    request.send()
-  })
+    request.send();
+  });
 }
 
-function loadImage (data) {
-  console.log(data)
+function loadImage(data) {
+  console.log(data);
   return new Promise(function (resolve, reject) {
-    const image = new Image()
+    const image = new Image();
     image.onload = function () {
-      console.log('Image loaded')
-      resolve(this)
-    }
-    const url = URL.createObjectURL(data)
-    console.log(url)
-    image.src = url
-  })
+      console.log('Image loaded');
+      resolve(this);
+    };
+    const url = URL.createObjectURL(data);
+    console.log(url);
+    image.src = url;
+  });
 }
 
-function drawImage (image) {
-  document.body.appendChild(image)
+function drawImage(image) {
+  document.body.appendChild(image);
 }
 
-async function processImage (imageSrc) {
+async function processImage(imageSrc) {
   try {
-    const imageBlob = await getImage(imageSrc)
-    const image = await loadImage(imageBlob)
+    const imageBlob = await getImage(imageSrc);
+    const image = await loadImage(imageBlob);
 
-    drawImage(image)
+    drawImage(image);
   } catch (error) {
-    console.error('TryCatch')
-    console.error(error.message)
+    console.error('TryCatch');
+    console.error(error.message);
   }
 }
 
-processImage('eventflow1.png')
-  .then(
-    function (tokens) {},
-    function (error) {
-      console.log(error.message)
-    }
-  )
+processImage('eventflow1.png').then(
+  function (tokens) {},
+  function (error) {
+    console.log(error.message);
+  }
+);

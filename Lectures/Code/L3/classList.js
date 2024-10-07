@@ -1,7 +1,11 @@
-const div = document.querySelector('.user-order-abb12')
-div.classList
-div.classList[index] | div.classList.item(i)
-div.add('yet-another-class')
-div.remove('yet-another-class')
-div.toggle('yet-another-class')
-div.contains('yet-another-class')
+const div = document.querySelector('.user-order-abb12');
+console.log(div.classList);
+// const i = 0;
+// console.log(div.classList[i] | div.classList.item(i));
+console.log(div.classList.add('yet-another-class'));
+// console.log(div.classList.remove('yet-another-class'));
+console.log(div.classList.toggle('yet-another-class'));
+console.log(div.classList);
+console.log(div.classList.toggle('yet-another-class'));
+console.log(div.classList);
+console.log(div.classList.contains('yet-another-class'));
