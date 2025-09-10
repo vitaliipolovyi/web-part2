@@ -1,1 +1,1 @@
-console.log(false, true, Boolean({}))
+console.log(false, true, Boolean(''), Boolean(undefined), Boolean({}));

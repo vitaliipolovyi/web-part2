@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  node-app: 
+  node-app:
     build:
       context: .
       dockerfile: ./docker/node/Dockerfile
@@ -10,7 +10,7 @@ services:
       - app-database
     restart: on-failure
     ports:
-      - "$PORT:$PORT"
+      - '$PORT:$PORT'
     environment:
       - HOST=$HOST
       - PORT=$PORT
@@ -22,8 +22,10 @@ services:
     volumes:
       - .:/home/node/app
       - /home/node/app/node_modules
-  app-database: 
-    image: mongo 
+    networks:
+      - l10net
+  app-database:
+    image: mongo
     container_name: l10db
     restart: unless-stopped
     environment:
@@ -41,6 +43,8 @@ services:
     volumes:
       - db:/data/db
       - ./docker/mongodb/entrypoint/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - l10net
   app-messages-queue:
     image: rabbitmq:management
     container_name: l10amq
@@ -49,10 +53,17 @@ services:
       - RABBITMQ_DEFAULT_USERNAME=$RABBITMQ_USERNAME
       - RABBITMQ_DEFAULT_PASSWORD=$RABBITMQ_PASSWORD
     ports:
-      - "$RABBITMQ_PORT:$RABBITMQ_PORT"
-      - "$RABBITMQ_DASHBOARD_PORT:$RABBITMQ_DASHBOARD_PORT"
+      - '$RABBITMQ_PORT:$RABBITMQ_PORT'
+      - '$RABBITMQ_DASHBOARD_PORT:$RABBITMQ_DASHBOARD_PORT'
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - l10net
 volumes:
   db:
   rabbitmq_data:
+
+networks:
+  l10net:
+    name: l10net
+    driver: bridge
